@@ -28,8 +28,8 @@ function discountPrices(prices, discount) {
     const discounted = []
     const length = prices.length;
     let discountedPrice = 0;
-    if (length === 0) {
-        return false;
+    if ((typeof prices !== "object") | (length === 0)) {
+      return false;
     }
     for(let i = 0; i < length; i++) {
         discountedPrice += prices[i] * (1 - discount);
@@ -39,4 +39,5 @@ function discountPrices(prices, discount) {
     return discounted;
 }
 
+console.log(discountPrices([100, 200, 300], 0.2)); // [80, 160, 240]
 module.exports = {sumValues, discountPrices};
