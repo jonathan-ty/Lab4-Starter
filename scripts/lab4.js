@@ -6,7 +6,7 @@
  * @returns The sum of the two numbers if add is true and false otherwise.
  */
 function sumValues(num1, num2, add) {
-    if (add) {
+    if (add & (typeof num1 === "number") && (typeof num2 === "number")) {
         let result = 0;
 
         result = num1 + num2;
@@ -32,12 +32,12 @@ function discountPrices(prices, discount) {
       return false;
     }
     for(let i = 0; i < length; i++) {
-        discountedPrice += prices[i] * (1 - discount);
+        discountedPrice = prices[i] * (1 - discount);
         discounted.push(discountedPrice);
     }
 
     return discounted;
 }
 
-console.log(discountPrices([100, 200, 300], 0.2)); // [80, 160, 240]
+console.log(discountPrices([10, 20, 30], 0.1)); // [80, 160, 240]
 module.exports = {sumValues, discountPrices};
